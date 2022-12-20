@@ -1,0 +1,20 @@
+syntax = "proto3";
+
+option csharp_namespace = "GrpcReceiverService";
+
+package receiver;
+
+// The greeting service definition.
+service Receiver {
+  // Sends a greeting
+  rpc NotifyChange (NotifyRequest) returns (EmptyReply);
+}
+
+// The request message containing the user's name.
+message NotifyRequest {
+  string Message = 1;
+}
+
+// The response message containing the greetings.
+message EmptyReply {
+}
