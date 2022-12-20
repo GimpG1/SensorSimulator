@@ -14,8 +14,8 @@ public class AnalyzeManager : IUserInterface
             {
                 return;
             }
-            var color = AnalyzeMessage(receiver.Message!);
-            Console.WriteLine(GetUserMessage(receiver.Message!), color);
+            Console.ForegroundColor = AnalyzeMessage(receiver.Message!);
+            Console.WriteLine(GetUserMessage(receiver.Message!), Console.ForegroundColor);
         }
     }
 

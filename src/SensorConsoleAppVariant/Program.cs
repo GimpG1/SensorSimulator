@@ -20,5 +20,6 @@ Console.CancelKeyPress += (sender, eventArgs) =>
 };
 await builderManager.Print(cts.Token);
 
-Console.WriteLine($"Counted messages {builderManager.MessagesCount}");
+Console.ForegroundColor = ConsoleColor.Cyan;
+Console.WriteLine($"Counted messages {builderManager.MessagesCount}", Console.ForegroundColor);
 Console.ReadKey();

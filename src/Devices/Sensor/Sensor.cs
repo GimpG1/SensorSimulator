@@ -24,7 +24,7 @@ public sealed class Sensor : ISensorData, ISensorDetails, IPublisher, IMessage, 
 
     public void OnFrequencyCall(object? sender, ElapsedEventArgs e)
     {
-        var rand = new Random().Next(MinValue, MaxValue);
+        var rand = new Random(Guid.NewGuid().GetHashCode()).Next(MinValue, MaxValue);
         for (int i = 0; i < Subscribers.Count; i++)
         {
             this.Subscribers[i].Notify(new SensorMessage()

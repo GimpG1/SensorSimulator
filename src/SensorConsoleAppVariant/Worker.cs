@@ -50,7 +50,7 @@ public class Worker
     {
         await Task.Run(() =>
         {
-            while (true && (!cancellationToken.IsCancellationRequested))
+            while (!cancellationToken.IsCancellationRequested)
             {
                 foreach (var receiver in _builderManager.GetReceivers())
                 {
