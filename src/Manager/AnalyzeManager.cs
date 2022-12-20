@@ -27,10 +27,10 @@ public class AnalyzeManager : IUserInterface
         
         message = statusMessage switch
         {
-            State.MinWarning => $"I'm getting closer so fast - sensor value:{value}",
-            State.MaxWarning => $"I'm starting to get distant - sensor value:{value}",
-            State.MinAlarm => "Too Close!",
-            State.MaxAlarm => "Too Far!",
+            State.MinWarning => $"/_\\ I'm getting closer so fast - sensor value:{value}",
+            State.MaxWarning => $"/_\\ I'm starting to get distant - sensor value:{value}",
+            State.MinAlarm => "(!) Too Close!",
+            State.MaxAlarm => "(!) Too Far!",
             State.Normal => "I'm ok",
             _ => string.Empty
         };

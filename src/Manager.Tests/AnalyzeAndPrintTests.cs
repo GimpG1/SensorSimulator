@@ -22,10 +22,10 @@ public class AnalyzeAndPrintTests
     
     [Test]
     [TestCase("$FIX [1], [Depth], [2], [Normal]", "I'm ok")]
-    [TestCase("$FIX [1], [Depth], [-1], [MinWarning]", "I'm getting closer so fast - sensor value: -1")]
-    [TestCase("$FIX [1], [Depth], [-5], [MinAlarm]", "Too Close!")]
-    [TestCase("$FIX [1], [Depth], [5], [MaxWarning]", "I'm starting to get distant - sensor value: 5")]
-    [TestCase("$FIX [1], [Depth], [7], [MaxAlarm]", "Too Far!")]
+    [TestCase("$FIX [1], [Depth], [-1], [MinWarning]", "/_\\ I'm getting closer so fast - sensor value: -1")]
+    [TestCase("$FIX [1], [Depth], [-5], [MinAlarm]", "(!) Too Close!")]
+    [TestCase("$FIX [1], [Depth], [5], [MaxWarning]", "/_\\ I'm starting to get distant - sensor value: 5")]
+    [TestCase("$FIX [1], [Depth], [7], [MaxAlarm]", "(!) Too Far!")]
     public void When_PrintIsRequired_Then_CheckTheMessage(string message, string expectedMessage)
     {
         // Arrange
