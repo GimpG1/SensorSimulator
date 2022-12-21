@@ -9,9 +9,9 @@ using Receiver = GrpcReceiverService.Receiver;
 using var channel = GrpcChannel.ForAddress("http://localhost:5146");
 var client = new Receiver.ReceiverClient(channel);
 
-var worker = new Worker();
+var worker = new SensorWorker();
 await worker.Read(new SensorReader());
-await worker.ResolveSensors();
+await worker.Resolve();
 
 var cts = new CancellationTokenSource();
 Console.CancelKeyPress += (sender, eventArgs) =>

@@ -11,10 +11,8 @@ var builder = WebApplication.CreateBuilder(args);
 builder.Services.AddGrpc();
 builder.Services.AddSingleton<IUserInterface, AnalyzeManager>();
 builder.Services.AddSingleton<BuilderManagerBase, BuilderManager>();
-
 var app = builder.Build();
 
 // Configure the HTTP request pipeline.
 app.MapGrpcService<ReceiverService>();
-
 app.Run();

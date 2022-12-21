@@ -33,9 +33,6 @@
     </ItemGroup>
 
     <ItemGroup>
-      <None Update="Configuration\receiversConfiguration.json">
-        <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-      </None>
       <None Update="Configuration\sensorConfig.json">
         <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
       </None>

@@ -44,7 +44,7 @@ public sealed class Receiver : IReceiverData, ISubscriber, INotifyPropertyChange
         }
 
         var status = _rangesController.CalculateStatus(message.Value);
-        this.Message = $"$FIX [{message.Sensor.Id}], [{message.Sensor.Type}], [{message.Value}], [{status}]";
+        this.Message = $"$FIX, [{message.Sensor.Id}], [{message.Sensor.Type}], [{message.Value}], [{status}]";
     }
 
     #region INotifyPropertyChanged

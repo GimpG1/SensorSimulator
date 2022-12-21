@@ -1,21 +1,26 @@
-﻿using Configuration.Struct.Receiver;
+﻿using Configuration.Struct;
+using Configuration.Struct.Receiver;
 using Configuration.Struct.Sensor;
 using Devices.Receiver;
 using Devices.Sensor;
+using Manager.Workers;
 
 namespace SensorClient;
 
-public class Worker
+public class SensorWorker : IConfigurationReaderAsync 
 {
     private SensorsConfiguration _configuration = null!;
     
-    public async Task Read(SensorReader sensorReader)
+    public async Task Read(ConfigurationBase reader)
     {
         try
         {
-            await sensorReader.ReadAsync();
-            await Task.Delay(100);
-            _configuration = sensorReader.Config;
+            if (reader is SensorReader sensorReader)
+            {
+                await sensorReader.ReadAsync();
+                await Task.Delay(100);
+                _configuration = sensorReader.Config;
+            }
         }
         catch (ArgumentException e)
         {
@@ -24,7 +29,7 @@ public class Worker
         }
     }
 
-    public async Task ResolveSensors()
+    public async Task Resolve()
     {
         await Task.Run(() =>
         {
